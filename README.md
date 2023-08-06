@@ -1,1 +1,1 @@
-# Automation-FIN6-Adversary-Emulation
+# Automation Script for FIN6 Adversary Emulation

@@ -58,6 +58,7 @@ For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https:/
   
 #### Step 3: Passwordless SSH Connectivity to Remote Linux Device
 -   Run the following powershell script [SSH_pwdless_login](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/blob/main/_script/SSH_pwdless_login.ps1). This will copy the contents of the id_rsa.pub public key to a remote Linux device
+    - ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/cecc7338-bdc3-4108-a7ad-4280739bc371)
 
 ```
 Usage Examples:
@@ -67,4 +68,4 @@ Usage Examples:
     -ip    IP Address of the Remote Server.
     -akey  The path to the Public Key Pair.
 ```
-  - ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/cecc7338-bdc3-4108-a7ad-4280739bc371)
+

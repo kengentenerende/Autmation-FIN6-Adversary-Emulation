@@ -12,8 +12,8 @@ Usage Examples:
 ```
 
 ## Features:
-- Discover and Staging using AdFind
-- Exfiltration using PSCP (PuTTY Secure Copy Protocol)
+- Discover and Staging using AdFind [**AdFind**](https://www.joeware.net/freetools/tools/adfind/)
+- Exfiltration using PuTTY Secure Copy Protocol [**PSCP**](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
 ## Blog
 For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https://kengentenerende.github.io/posts/FIN6-Adversary-Emulation-Phase-1/)

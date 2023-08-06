@@ -23,7 +23,8 @@ For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https:/
 
 ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/5a0b3803-605d-487b-a923-174173f7901b)
 
-![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/3d1bc168-2068-4ae7-99f7-4cd415064962)
+![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/c02dd414-4227-4b5a-9720-9dbcae2735d6)
+
 
 ## Pre-requisite
 - [Open-SSH](https://github.com/PowerShell/Win32-OpenSSH)

@@ -25,6 +25,19 @@ For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https:/
 
 ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/6830f6e7-3ca0-4366-b762-4604d0527e43)
 
+## Functions
+- `Get-AdContainer`
+- `Get-AdFind`
+- `Get-DomainAccount`
+- `Get-RemoteSystem`
+- `Get-DomainTrust`
+- `Get-ForestDomainTrust`
+- `Get-SystemNet`
+- `Get-GroupPerm`
+- `Get-OSCredDump`
+- `Get-CollectArc`
+- `Get-ExfilPscp`
+
 ## Pre-requisite
 - [Open-SSH](https://github.com/PowerShell/Win32-OpenSSH)
 

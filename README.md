@@ -18,7 +18,7 @@ Usage Examples:
 ## Blog
 For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https://kengentenerende.github.io/posts/FIN6-Adversary-Emulation-Phase-1/)
 
-## Screeenshots
+## Screenshots
 ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/b1ca41a3-d0fd-4aab-b174-8debf16b193d)
 
 ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/5a0b3803-605d-487b-a923-174173f7901b)

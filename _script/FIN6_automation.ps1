@@ -252,8 +252,6 @@ Write-Host $errorOutput
 #
 #--------------------------------------------------------------------------------------------------------
 
-#Automation to Register Private Key on Authorized Keys
-
 Write-Host "`n[+] Exfiltration Using PSCP Completed: [Alternative]" -ForegroundColor Green;
 Write-Host "`n[+] Operation Complete" -ForegroundColor Green;
 

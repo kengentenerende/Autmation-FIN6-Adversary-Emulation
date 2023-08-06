@@ -38,7 +38,7 @@ For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https:/
 - `Get-CollectArc`
 - `Get-ExfilPscp`
 
-## Pre-requisite
+## Pre-Requisite
 - [Open-SSH](https://github.com/PowerShell/Win32-OpenSSH)
 
 ## Required Installation

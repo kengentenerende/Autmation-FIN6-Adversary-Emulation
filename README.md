@@ -37,7 +37,6 @@ For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https:/
 - Save both keys (Public and Private Keys) to a secure location on your computer.
   - ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/bb16249a-0267-4460-9124-2079ba4d09b1)
 - Select and copy Public Key into a text file which will be later pasted into the OpenSSH authorized_keys file on the remote server.
-- 
   - ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/d6ffb213-8f64-4b51-9d81-3606f30d41ba)
 
 #### Step 2: Generate SSH Key Pairs using ssh-keygen

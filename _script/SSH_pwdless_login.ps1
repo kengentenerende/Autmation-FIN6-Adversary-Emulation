@@ -43,7 +43,7 @@ param(
 Get-Param @PSBoundParameters
 
 
-#Automation to Register Private Key on Authorized Keys
+#Automation to Register Public Key on Authorized Keys
 type $akey | ssh $resultHost "mkdir -p ~/.ssh; chmod 700 ~/.ssh; touch ~/.ssh/authorized_keys; cat >> ~/.ssh/authorized_keys";
 
 Write-Host "`n[+] Operation Complete" -ForegroundColor Green;

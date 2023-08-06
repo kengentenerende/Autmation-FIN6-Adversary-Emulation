@@ -24,7 +24,6 @@ param(
     [Parameter(Mandatory=$true)][string]$pkey
 )
 
-
 $resultHost = $u+"@"+$ip
 $currentDir = $PWD
 function Get-Param{

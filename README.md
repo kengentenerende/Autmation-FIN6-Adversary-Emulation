@@ -12,7 +12,7 @@ Usage Examples:
 ```
 
 ## Features:
-- Discovery and Staging using AdFind [**AdFind**](https://www.joeware.net/freetools/tools/adfind/)
+- Discovery and Staging using [**AdFind**](https://www.joeware.net/freetools/tools/adfind/)
 - Exfiltration using PuTTY Secure Copy Protocol [**PSCP**](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
 ## Blog

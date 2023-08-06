@@ -4,6 +4,10 @@
     Author:  @kengentenerende
 
     Summary: Powershell Script to Automate SSH Public Key Login.
+    
+    Usage Examples:
+    
+        .\SSH_paswordless_login.ps1 -u kali -ip XXX.XXX.XXX.XXX -akey [path_to_public_key]
 
 .PARAMETER -u
      Username of the Remote Server.

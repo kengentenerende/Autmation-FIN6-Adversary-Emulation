@@ -1,1 +1,1 @@
-# Autmation-FIN6-Adversary-Emulation
+# Automation-FIN6-Adversary-Emulation

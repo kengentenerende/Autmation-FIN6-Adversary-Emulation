@@ -3,7 +3,7 @@
 .NOTES
     Author:  @kengentenerende
 
-    Summary: Powershell Script to Automate Public.
+    Summary: Powershell Script to Automate SSH Public Key Login.
 
 .PARAMETER -u
      Username of the Remote Server.

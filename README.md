@@ -63,7 +63,7 @@ For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https:/
 
 ```
 Usage Examples:
-  .\SSH_paswordless_login.ps1 -u kali -ip XXX.XXX.XXX.XXX -akey [path_to_public_key]
+  .\SSH_pwdless_login.ps1 -u kali -ip XXX.XXX.XXX.XXX -akey [path_to_public_key]
 
     -u     Username of the Remote Server.
     -ip    IP Address of the Remote Server.

@@ -32,10 +32,9 @@ For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https:/
 
 #### Step 1: Generate SSH Key Pairs using Putty
 
-- Grab the last version of the [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) Windows Installer executable package and install it onto your Target Machine.
-- Open PuTTygen and proceed with Keys generation:
+- Install latest version of the [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) Windows Installer executable package and install it onto your Target Machine.
+- Open PuTTygen and proceed with Key Generation.
 - Save both keys (Public and Private Keys) to a secure location on your computer.
-- 
   - ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/bb16249a-0267-4460-9124-2079ba4d09b1)
 - Select and copy Public Key into a text file which will be later pasted into the OpenSSH authorized_keys file on the remote server.
 - 
@@ -43,7 +42,6 @@ For demonstration, please visit [**FIN6 Adversary Emulation - Phase 1**](https:/
 
 #### Step 2: Generate SSH Key Pairs using ssh-keygen
 - Open a new PowerShell window and generate a new SSH key-pair with the `ssh-keygen` command. By default, the public and private keys will be placed in the `%USERPROFILE%/.ssh/` directory. The public key file we are interested in is named `id_rsa.pub`. Save the 2 generated Public Keys in a single file.
-- 
   - ![image](https://github.com/kengentenerende/Automation-FIN6-Adversary-Emulation/assets/46080752/2ad76b58-2987-4489-abb1-c1c154a57ff4)
   
 #### Step 3: Passwordless SSH Connectivity to Remote Linux Device

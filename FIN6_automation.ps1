@@ -4,8 +4,10 @@
     Author:  @kengentenerende
 
     Summary: Powershell Script to Automate Adversary Emulation of FIN6 APT.
-             Usage Examples (run from repo root):
-                .\FIN6.ps1 -u kali -ip XXX.XXX.XXX.XXX -pkey .\rsa_private.ppk
+    
+    Usage Examples:
+    
+        .\FIN6_automation.ps1 -u kali -ip XXX.XXX.XXX.XXX -pkey [path_to_private_key].ppk
 
 .PARAMETER -u
      Username of the Remote Server.
